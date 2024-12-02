@@ -12,8 +12,9 @@
 // const data = fs.readFileSync('src/1.js', { encoding: "utf-8" });
 // console.log(data);
 
-
-import { readFile } from 'node:fs/promises';
+// 如果使用 ES module的方式的话，需要在package.json中添加"type": "module"，方可如此使用
+// import { readFile } from 'node:fs/promises';
+const { readFile } = require('node:fs/promises');
 
 // try {
 //   readFile('src/1.js', { encoding: 'utf-8' }).then(data => {
