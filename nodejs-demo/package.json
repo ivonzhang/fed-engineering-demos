@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "node index.js",
-    "dev:path": "node path.js"
+    "dev:path": "node path.js",
+    "dev:process": "node process.js"
   },
   "keywords": [],
   "author": "",
