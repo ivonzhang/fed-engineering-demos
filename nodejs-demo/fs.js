@@ -17,14 +17,14 @@
 // readPkg();
 
 // demo2: 文件写入
-const fs = require("fs");
-fs.writeFile('./1.txt', '异步写入：hello world!', (err) => {
-  if (err) {
-    console.error('写入失败');
-  } else {
-    console.log("写入成功")
-  }
-});
+// const fs = require("fs");
+// fs.writeFile('./1.txt', '异步写入：hello world!', (err) => {
+//   if (err) {
+//     console.error('写入失败');
+//   } else {
+//     console.log("写入成功")
+//   }
+// });
 
 // fs.writeFileSync('./1.txt', "同步写入: hello world!!");
 // fs.appendFileSync('./1.txt', '\n666')
@@ -34,3 +34,16 @@ fs.writeFile('./1.txt', '异步写入：hello world!', (err) => {
 // ws.write("\n2");
 // ws.write("\n3");
 // ws.close();
+
+// demo3: 复制文件
+const fs = require("fs");
+fs.copyFileSync('./package.json', './package-copy.json');
+
+// demo4: 删除文件
+fs.unlink('./package-copy.json', (err) => {
+  if (err) {
+    console.error(err);
+    throw err;
+  }
+  console.log("delete success");
+})
