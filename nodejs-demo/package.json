@@ -7,7 +7,8 @@
     "dev": "node index.js",
     "dev:path": "node path.js",
     "dev:process": "node process.js",
-    "dev:fs": "node fs.js"
+    "dev:fs": "node fs.js",
+    "dev:server": "node http.js"
   },
   "keywords": [],
   "author": "",
