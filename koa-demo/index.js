@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const dotenv = require("dotenv");
 const { logger }= require('./src/middleware/log');
+const errorHandler = require('./src/middleware/error-handler');
 
 dotenv.config({ path: './config/.env.local' });
 const PORT = process.env.PORT;
@@ -10,6 +11,7 @@ const PORT = process.env.PORT;
 const app = new Koa();
 
 app.use(logger);
+app.use(errorHandler);
 
 app.use(async (ctx) => {
   if (ctx.request.url === "/") {
