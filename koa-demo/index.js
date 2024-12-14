@@ -2,7 +2,7 @@ const Koa = require("koa");
 const fs = require("fs");
 const path = require("path");
 const dotenv = require("dotenv");
-const { logger }= require('./middleware/log');
+const { logger }= require('./src/middleware/log');
 
 dotenv.config({ path: './config/.env.local' });
 const PORT = process.env.PORT;
@@ -23,7 +23,15 @@ app.use(async (ctx) => {
     ctx.response.body = mainJsContent;
     ctx.response.set("Content-Type", "text/javascript");
   }
+  if (ctx.request.url === '/error') {
+    ctx.throw(500); 
+  }
 });
 
+// error 事件的监听
+// demo: http://localhost:5174/error
+app.on('error', (err, ctx) => {
+  console.error('server error', err);
+});
 
 app.listen(PORT, () => console.log("listen on " + PORT));
